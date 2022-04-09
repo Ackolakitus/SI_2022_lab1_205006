@@ -1,0 +1,104 @@
+"$ git clone https://github.com/Ackolakitus/SI_2022_lab1_205006
+$ cd SI_2022_lab1_205006/
+
+$ git config --global user.emal "aleksandar.ristovski001@gmail.com"
+$ git config --global user.name "Aleksandar Ristovski"
+
+$ git add shopping_list.txt
+
+$ git commit -m "Add 5 items to the shopping list"
+[master 93b9435] Add 5 items to the shopping list
+ 1 file changed, 5 insertions(+)
+ create mode 100644 shopping_list.txt
+
+
+
+$ git add .
+$ git commit -m "Add quantities to the items"
+[master 169eb5c] Add quantities to the items
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+$ git branch branch1
+$ git branch branch2
+
+$ git push --all origin
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 654 bytes | 654.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Ackolakitus/SI_2022_lab1_205006
+   898d27f..8483d38  master -> master
+ * [new branch]      branch1 -> branch1
+ * [new branch]      branch2 -> branch2
+
+
+
+$ git checkout branch1
+$ git add shopping_list.txt
+$ git commit -m "Change quantity of item #5"
+
+$ git checkout master
+
+$ git add shopping_list.txt
+$ git commit -m "Change quantity of item #2"
+
+
+$ git push --all origin
+
+
+$ git checkout branch2
+$ git add shopping_list.txt
+$ git commit -m "Modify item #4"
+[branch2 98a314f] Modify item #4
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+$ git add shopping_list.txt
+$ git commit --amend -m "Modify item #4 and add item #6"
+[branch2 a02c59e] Modify item #4 and add item #6
+ Date: Sun Apr 10 01:16:24 2022 +0200
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+
+$ git checkout master
+
+$ git merge branch1
+Auto-merging shopping_list.txt
+Merge made by the 'ort' strategy.
+ shopping_list.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+
+Ovoj merge nema da napravi konflikt. Ke se izvrshi po recursive strategy.
+
+
+$ git merge branch2
+Auto-merging shopping_list.txt
+CONFLICT (content): Merge conflict in shopping_list.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+Merge na master so branch2 doveduva do konflikt.
+Konfliktot go reshiv na toj nacin sto gi izbrishal liniite pomegju 
+>>>>>Head 
+i 
+========, i posledniot red <<<<<<<<branch2.
+Potoa go stage-nav i commit-nav fajlot.
+
+
+
+
+$ git add . 
+
+$ git commit -m "Merge branch 'branch2'"
+[master 7ac9e1f] Merge branch 'branch2'
+
+$ git add . 
+$ git commit -m "Add docs"
+$ git push --all origin
+
+
+
+
